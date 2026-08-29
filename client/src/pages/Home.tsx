@@ -4,6 +4,7 @@ import {
   BadgeCheck,
   BriefcaseBusiness,
   Code2,
+  FileDown,
   FileUser,
   GraduationCap,
   Github,
@@ -19,6 +20,13 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
+
+/* ============================================================
+   CV
+   ============================================================ */
+
+// Le fichier PDF doit être placé dans client/public/cv/CV_Hana_Belhadj.pdf
+const CV_URL = '/cv/CV_Hana_Belhadj.pdf';
 
 /* ============================================================
    DATA
@@ -220,7 +228,14 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={CV_URL}
+              download="CV_Hana_Belhadj.pdf"
+              className="flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 hover:border-violet-300 hover:text-violet-600 transition-all"
+            >
+              <FileDown size={16} /> Mon CV
+            </a>
             <button onClick={() => scrollTo('contact')} className="rounded-full bg-slate-900 text-white text-sm font-bold px-5 py-2.5 hover:bg-violet-600 hover:shadow-lg hover:shadow-violet-200 transition-all">
               Me contacter
             </button>
@@ -236,6 +251,13 @@ export default function Home() {
                 {id}
               </button>
             ))}
+            <a
+              href={CV_URL}
+              download="CV_Hana_Belhadj.pdf"
+              className="flex items-center gap-2 py-2.5 font-semibold text-violet-600"
+            >
+              <FileDown size={16} /> Télécharger mon CV
+            </a>
           </div>
         )}
       </nav>
@@ -269,9 +291,13 @@ export default function Home() {
                 <button onClick={() => scrollTo('projets')} className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-7 py-3.5 font-bold text-white shadow-lg shadow-violet-900/40 hover:scale-105 hover:shadow-violet-700/50 transition-all">
                   Voir mes projets
                 </button>
-                <button onClick={() => scrollTo('contact')} className="rounded-full border border-white/20 px-7 py-3.5 font-bold text-white hover:bg-white/10 hover:border-white/40 transition-all">
-                  Discutons de votre projet
-                </button>
+                <a
+                  href={CV_URL}
+                  download="CV_Hana_Belhadj.pdf"
+                  className="flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white hover:bg-white/10 hover:border-white/40 transition-all"
+                >
+                  <FileDown size={18} /> Télécharger mon CV
+                </a>
               </div>
               <div className="hb-hero-anim mt-12 flex flex-wrap gap-8" style={{ animationDelay: '340ms' }}>
                 {[['8', 'Projets'], ['4', 'Expériences'], ['3', 'Certifications'], ['2', 'Démos live']].map(([n, l]) => (
@@ -309,9 +335,11 @@ export default function Home() {
       {/* ================= PARCOURS ================= */}
       <section id="parcours" className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
-          <Reveal className="mb-14 max-w-xl">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-violet-600">Parcours</p>
-            <h2 className="font-display mt-3 text-4xl font-extrabold text-slate-900">Expériences professionnelles</h2>
+          <Reveal className="mb-14 max-w-xl flex items-start justify-between gap-6 flex-wrap">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-widest text-violet-600">Parcours</p>
+              <h2 className="font-display mt-3 text-4xl font-extrabold text-slate-900">Expériences professionnelles</h2>
+            </div>
           </Reveal>
           <div className="space-y-8">
             {EXPERIENCE.map((item, i) => (
@@ -349,6 +377,16 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={120} className="mt-14 flex justify-center">
+            <a
+              href={CV_URL}
+              download="CV_Hana_Belhadj.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white font-bold px-8 py-3.5 hover:bg-violet-600 hover:shadow-lg hover:shadow-violet-200 transition-all"
+            >
+              <FileDown size={18} /> Consulter le CV complet (PDF)
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -498,6 +536,14 @@ export default function Home() {
             <div className="mt-6 flex gap-3">
               <a href="https://github.com/hana270" target="_blank" rel="noreferrer" className="rounded-full border-2 border-slate-100 p-3 hover:border-violet-300 hover:-translate-y-0.5 transition-all"><Github size={18} /></a>
               <a href="https://www.linkedin.com/in/hana-belhadj" target="_blank" rel="noreferrer" className="rounded-full border-2 border-slate-100 p-3 hover:border-violet-300 hover:-translate-y-0.5 transition-all"><Linkedin size={18} /></a>
+              <a
+                href={CV_URL}
+                download="CV_Hana_Belhadj.pdf"
+                className="rounded-full border-2 border-slate-100 p-3 hover:border-violet-300 hover:-translate-y-0.5 transition-all"
+                title="Télécharger mon CV"
+              >
+                <FileDown size={18} />
+              </a>
             </div>
           </Reveal>
           <Reveal>
