@@ -20,6 +20,10 @@ import {
   X,
 } from 'lucide-react';
 
+// IMPORT DES NOUVEAUX COMPOSANTS
+import { DotBorderButton } from "@/components/ui/dot-border-button";
+import { HandwritingText } from "@/components/ui/handwriting-text";
+
 /* ============================================================
    CV CONSTANTS & URLS
    ============================================================ */
@@ -673,7 +677,13 @@ export default function Home() {
               >
                 Développeuse{' '}
                 <span className="hb-gradient-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent">
-                  Full-Stack
+                  <HandwritingText
+                    words={["Full-Stack", "Web", "Mobile", "Freelance", "Décisionnelle"]}
+                    className="text-violet-400"
+                    height="1.15em"
+                    interval={3000}
+                    duration={1.2}
+                  />
                 </span>
               </h1>
 
@@ -710,8 +720,18 @@ export default function Home() {
                 </a>
               </div>
 
+              {/* BOUTON ANIMÉ AVEC DOT BORDER */}
               <div
-                className="hb-hero-anim mt-12 flex flex-wrap gap-8"
+                className="hb-hero-anim mt-8"
+                style={{ animationDelay: '320ms' }}
+              >
+                <div className="w-64 h-14">
+                  <DotBorderButton mode="dark" className="h-full w-full" />
+                </div>
+              </div>
+
+              <div
+                className="hb-hero-anim mt-8 flex flex-wrap gap-8"
                 style={{ animationDelay: '340ms' }}
               >
                 {[
@@ -1144,7 +1164,7 @@ export default function Home() {
                 <p className="mt-4 text-slate-600 leading-relaxed">
                   À la recherche d'une opportunité en tant que développeuse
                   junior ou d'un accompagnement freelance sur vos projets web
-                  et numériques ? N'hésite pas à m'écrire.
+                  et numériques ? N'hésitez pas à m'écrire.
                 </p>
 
                 <div className="mt-8 space-y-4">

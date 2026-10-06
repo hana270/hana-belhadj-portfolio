@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Portfolio de Hana Belhadj, développeuse Full-Stack : Next.js, Node.js, Spring Boot, Angular, Supabase.">
+<meta property="og:title" content="Hana Belhadj — Développeuse Full-Stack">
+<meta property="og:image" content="assets/og-image.jpg">
+<title>Hana Belhadj — Développeuse Full-Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1322;--bg2:#121b30;--tx:#e6ebf5;--mu:#93a0ba;--ac:#5ce1e6;--ac2:#9a8cff;--ln:#243049;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f6fb;--bg2:#fff;--tx:#12182b;--mu:#55627e;--ac:#0a7f93;--ac2:#5a4bd6;--ln:#d6dcea}}
+:root[data-theme="light"]{--bg:#f4f6fb;--bg2:#fff;--tx:#12182b;--mu:#55627e;--ac:#0a7f93;--ac2:#5a4bd6;--ln:#d6dcea}
+:root[data-theme="dark"]{--bg:#0c1322;--bg2:#121b30;--tx:#e6ebf5;--mu:#93a0ba;--ac:#5ce1e6;--ac2:#9a8cff;--ln:#243049}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.65 'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+#bg{position:fixed;inset:0;z-index:-1;opacity:.55}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:50}
+header{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+header b{font-weight:700}
+nav{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--mu)}
+nav a:hover,nav a.on{color:var(--ac)}
+#th{background:none;border:1px solid var(--ln);color:var(--tx);border-radius:8px;padding:4px 10px;cursor:pointer}
+@media(max-width:760px){nav a:not(.keep){display:none}}
+section{padding:90px 5vw;max-width:1180px;margin:auto}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:0 0 34px;letter-spacing:-.02em;line-height:1.1}
+h2 small{display:block;font:400 13px 'JetBrains Mono',monospace;color:var(--ac);margin-bottom:10px;letter-spacing:0}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;min-height:calc(100vh - 60px);padding-top:50px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.02;margin:14px 0;letter-spacing:-.03em}
+h1 span{background:linear-gradient(100deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mu);max-width:560px;font-size:1.08rem}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--ln);border-radius:99px;padding:5px 14px;font-size:13px;background:var(--bg2)}
+.dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 #3ddc84;animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 9px transparent}}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{padding:12px 22px;border-radius:10px;font-weight:500;border:1px solid var(--ln);background:var(--bg2);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:pointer;color:var(--tx);font-family:inherit;font-size:15px}
+.btn:hover{transform:translateY(-3px);border-color:var(--ac)}
+.btn.p{background:linear-gradient(100deg,var(--ac),var(--ac2));color:#0a1020;border:0;font-weight:700}
+.term{background:var(--bg2);border:1px solid var(--ln);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px #000a}
+.term .top{display:flex;gap:7px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--ln);font-size:12px;color:var(--mu)}
+.term .top i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.term .top i:nth-child(2){background:#febc2e}.term .top i:nth-child(3){background:#28c840}
+.term pre{margin:0;padding:18px;font-size:13.5px;line-height:1.7;min-height:310px;white-space:pre-wrap;color:var(--tx)}
+.k{color:var(--ac2)}.s{color:var(--ac)}.cur{display:inline-block;width:8px;height:15px;background:var(--ac);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px}
+.stats b{display:block;font-size:2rem;line-height:1}.stats span{font-size:13px;color:var(--mu)}
+.card{background:var(--bg2);border:1px solid var(--ln);border-radius:14px;padding:22px;transition:border-color .3s,transform .15s}
+.card:hover{border-color:var(--ac)}
+.tag{display:inline-block;font:12px 'JetBrains Mono',monospace;border:1px solid var(--ln);border-radius:6px;padding:2px 9px;margin:4px 6px 0 0;color:var(--mu)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:30px;border-color:var(--ac2);background:linear-gradient(140deg,var(--bg2),color-mix(in srgb,var(--ac2) 12%,var(--bg2)))}
+@media(max-width:900px){.feat{grid-template-columns:1fr}}
+.feat h3{font-size:1.8rem;margin:6px 0}
+.arch{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.node{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--ln);border-radius:10px;padding:12px 16px;background:var(--bg);font-size:14px;opacity:0;transform:translateX(24px);transition:.6s}
+.in .node{opacity:1;transform:none}.in .node:nth-child(3){transition-delay:.25s}.in .node:nth-child(5){transition-delay:.5s}
+.node em{font:12px 'JetBrains Mono',monospace;color:var(--ac);font-style:normal}
+.flow{height:22px;width:2px;margin:0 auto;background:repeating-linear-gradient(var(--ac) 0 4px,transparent 4px 8px);animation:fl 1s linear infinite}
+@keyframes fl{to{background-position:0 8px}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.filters{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.filters button{background:none;border:1px solid var(--ln);color:var(--mu);border-radius:99px;padding:6px 16px;cursor:pointer;font:inherit;font-size:14px}
+.filters button.on{background:var(--ac);color:#0a1020;border-color:var(--ac)}
+.pj h4{margin:0 0 6px;font-size:1.1rem}.pj p{color:var(--mu);font-size:14.5px;margin:0 0 8px}
+.pj .gh{font:13px 'JetBrains Mono',monospace;color:var(--ac)}
+.tl{border-left:2px solid var(--ln);margin-left:6px;padding-left:28px;display:grid;gap:22px}
+.tl .card{position:relative}.tl .card:before{content:"";position:absolute;left:-37px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 4px var(--bg)}
+.tl time{font:12.5px 'JetBrains Mono',monospace;color:var(--ac)}.tl h4{margin:4px 0 0;font-size:1.1rem}.tl .co{color:var(--ac2);font-size:14px}.tl p{color:var(--mu);font-size:14.5px;margin:8px 0 2px}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.sk h4{margin:0 0 8px;font-size:1rem}
+.r{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.r.in{opacity:1;transform:none}
+form{display:grid;gap:12px;max-width:560px}
+input,textarea{background:var(--bg2);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;color:var(--tx);font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--ac)}
+footer{border-top:1px solid var(--ln);text-align:center;padding:28px;color:var(--mu);font-size:14px}
+.ph{width:100%;max-width:300px;aspect-ratio:1;border-radius:18px;object-fit:cover;border:1px solid var(--ln);margin-bottom:16px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r,.node{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div id="bar"></div>
+<header>
+<a href="#top"><b class="mono">hana<span style="color:var(--ac)">.dev</span></b></a>
+<nav><a href="#projets" class="keep">Projets</a><a href="#stack">Stack</a><a href="#parcours">Parcours</a><a href="#certifs">Certifications</a><a href="#contact" class="keep">Contact</a><button id="th" aria-label="Changer de thème">◐</button></nav>
+</header>
+
+<section id="top" class="hero">
+<div>
+<img class="ph" style="max-width:120px;border-radius:50%" alt="Portrait de Hana Belhadj" src="assets/hana-photo.jpg">
+<span class="badge mono"><i class="dot"></i>Disponible : poste junior &amp; missions freelance</span>
+<h1>Hana Belhadj,<br>développeuse <span id="rot">Full-Stack</span></h1>
+<p class="lead">Étudiante en Master Informatique Décisionnelle et Intelligente. Je conçois des applications web complètes : interfaces Next.js et Angular, API Node.js et Spring Boot, bases PostgreSQL, déploiement en production.</p>
+<div class="btns">
+<a class="btn p" href="#projets">Voir mes projets</a>
+<a class="btn" href="https://github.com/hana270" target="_blank" rel="noopener">GitHub</a>
+<a class="btn" href="cv/CV_Hana_belhadj.pdf" download>Télécharger mon CV</a>
+</div>
+<div class="stats">
+<div><b data-n="9">0</b><span>projets</span></div><div><b data-n="4">0</b><span>expériences</span></div><div><b data-n="3">0</b><span>certifications</span></div><div><b data-n="3">0</b><span>démos en ligne</span></div>
+</div>
+</div>
+<div class="term" aria-label="Présentation sous forme de terminal">
+<div class="top"><i></i><i></i><i></i><span class="mono" style="margin-left:8px">hana@portfolio:~</span></div>
+<pre class="mono" id="tp"></pre>
+</div>
+</section>
+
+<section id="projets">
+<h2><small class="mono">// projets</small>Ce que j'ai construit</h2>
+<div class="card feat r" id="feat">
+<div>
+<span class="badge mono"><i class="dot"></i>Projet phare · en production</span>
+<h3>Tourism Platform</h3>
+<p style="color:var(--mu)">Plateforme de tourisme complète avec un espace client et un espace administrateur, déployée de bout en bout : frontend, API et base de données hébergés séparément.</p>
+<div><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Vercel</span><span class="tag">Render</span></div>
+<div class="btns">
+<a class="btn p" href="https://tourism-platform-ten.vercel.app/fr" target="_blank" rel="noopener">Démo client</a>
+<a class="btn" href="https://tourism-platform-ten.vercel.app/fr/login" target="_blank" rel="noopener">Espace admin</a>
+<a class="btn" href="https://github.com/hana270/tourism-platform" target="_blank" rel="noopener">Code source</a>
+</div>
+</div>
+<div class="arch" aria-label="Architecture de déploiement">
+<div class="node"><span>Frontend Next.js</span><em>Vercel</em></div><div class="flow"></div>
+<div class="node"><span>API REST Node.js</span><em>Render</em></div><div class="flow"></div>
+<div class="node"><span>Base de données</span><em>Supabase</em></div>
+</div>
+</div>
+
+<div style="height:44px"></div>
+<div class="filters" id="fl"></div>
+<div class="grid" id="pg"></div>
+</section>
+
+<section id="stack">
+<h2><small class="mono">// stack</small>Technologies maîtrisées</h2>
+<div class="sk" id="sk"></div>
+</section>
+
+<section id="parcours">
+<h2><small class="mono">// parcours</small>Expériences &amp; formation</h2>
+<div class="tl" id="tl"></div>
+</section>
+
+<section id="certifs">
+<h2><small class="mono">// certifications</small>Formations validées</h2>
+<div class="grid" id="ce"></div>
+</section>
+
+<section id="contact">
+<h2><small class="mono">// contact</small>Travaillons ensemble</h2>
+<p class="lead" style="margin-bottom:24px">Hammamet Nord, Nabeul, Tunisie. Disponible en télétravail.</p>
+<form id="cf">
+<input name="n" placeholder="Votre nom" required aria-label="Nom">
+<input name="e" type="email" placeholder="Votre e-mail" required aria-label="E-mail">
+<textarea name="m" rows="4" placeholder="Votre message" required aria-label="Message"></textarea>
+<button class="btn p" type="submit">Envoyer le message</button>
+</form>
+<div class="btns">
+<a class="btn" href="mailto:hanabelhadj27@gmail.com">hanabelhadj27@gmail.com</a>
+<a class="btn" href="tel:+21652663607">+216 52 663 607</a>
+<a class="btn" href="https://www.linkedin.com/in/hana-belhadj" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+</section>
+<footer>© 2026 Hana Belhadj · Fait avec HTML, CSS et JavaScript</footer>
+
+<script>
+const P=[
+["web","Tourism Platform","Next.js · Node.js · Supabase","Espaces client et admin, déployée sur Vercel, Render et Supabase.",["Next.js","Node.js","Supabase"],"https://github.com/hana270/tourism-platform"],
+["web","Employee Manager","Django","CRUD de gestion des employés, déployé sur Vercel.",["Django","Python","Vercel"],"https://github.com/hana270/Application-Django"],
+["web","Gestion des Recettes (SOA)","Spring Boot · Angular","Architecture orientée services avec Keycloak, JWT et API REST sécurisée.",["Spring Boot","Angular","Keycloak"],"https://github.com/hana270/Atelier-S.O.A"],
+["web","Parapharmacie E-Commerce","CodeIgniter 4","Catalogue, panier, commandes, réclamations et espace admin.",["PHP","CodeIgniter 4","MySQL"],"https://github.com/hana270/E-commerce-CodeIgniter-4"],
+["web","Système Parapharmacie MVC","PHP · SQL","Plateforme MVC de gestion de stock.",["PHP","CodeIgniter","UML"],"https://github.com/hana270/Codelgniter"],
+["web","Gestion des Étudiants","Angular · JSON Server","CRUD dynamique consommant une API JSON.",["Angular","TypeScript","RxJS"],"https://github.com/hana270/angularproject"],
+["web","Application Laravel","PHP · Laravel","Blade, Vite et Eloquent ORM.",["Laravel","Blade","Eloquent"],"https://github.com/hana270/Project"],
+["web","Color Memory Challenge","JavaScript","Jeu de mémoire responsive avec difficulté progressive et score sauvegardé.",["JavaScript","Vercel"],"https://github.com/hana270/color-memory-challenge"],
+["desktop","Atelier de Réparation","Java · Swing","Gestion des clients, équipements, pièces et ordres de réparation.",["Java","Swing","POO"],"https://github.com/hana270/Atelier-Reparation"],
+["mobile","Application Android","Android Studio · Java","Activités et composants d'interface Android natifs.",["Android","Java"],"https://github.com/hana270/AndroidStudio/tree/main/app/src"]];
+const S=[["Frontend",["Next.js","Angular","TypeScript","HTML / CSS","JavaScript"]],["Backend",["Node.js","Spring Boot","Django","Laravel","CodeIgniter 4","PHP","Java","Python"]],["Données",["PostgreSQL","Supabase","MySQL","SQL","Analyse de données"]],["Architecture & outils",["Microservices","API Gateway","Eureka","JWT / Keycloak","Scrum","Git / GitHub","Vercel","Render"]]];
+const T=[["Fév. – Juin 2025","Développeuse Full-Stack, stagiaire","Hammamet Valley Hub","E-commerce de récupérateurs d'eau de pluie : visualisation 3D et réalité augmentée, suivi de stock, affectation automatique des installateurs, messagerie et notifications en temps réel. Microservices avec Spring Boot, Angular, API Gateway et Eureka, en Scrum.",["Spring Boot","Angular","Microservices"]],
+["Sept. 2025 – Juin 2027","Master de recherche en Informatique Décisionnelle et Intelligente","ESC Tunis (co-diplomation ISAMM)","Data mining, apprentissage automatique, aide à la décision, IA appliquée et optimisation.",["Data mining","Machine learning"]],
+["Juin – Sept. 2024","Agent de guichet, saisonnière","La Poste Tunisienne","Opérations financières et relation client avec les systèmes Uniposte et monétiques.",["Travail d'équipe"]],
+["Janv. – Fév. 2024","Stagiaire développeuse web","Yes-Internet","Site e-commerce complet avec CodeIgniter 4, PHP, JavaScript et MySQL.",["PHP","CodeIgniter 4","MySQL"]],
+["2022 – 2025","Licence en Informatique","ISET Nabeul","Développement web et mobile, bases de données, architectures logicielles.",[]],
+["Janv. 2023","Stagiaire","UIB, Groupe Société Générale","Site vitrine statique en HTML et CSS.",["HTML","CSS"]]];
+const C=[["Associate Data Analyst","DataCamp","Août 2026","https://www.datacamp.com/certificate/DAA0010386641112"],["Full Stack avec Spring Boot 3 et Angular","Udemy · 26,5 h","Nov. 2024",""],["Generative AI Literacy","Simplilearn SkillUp","Août 2026",""]];
+const $=s=>document.querySelector(s);
+$('#sk').innerHTML=S.map(([t,a])=>`<div class="card r"><h4>${t}</h4>${a.map(x=>`<span class="tag">${x}</span>`).join('')}</div>`).join('');
+$('#tl').innerHTML=T.map(([d,r,c,p,g])=>`<div class="card r"><time>${d}</time><h4>${r}</h4><div class="co">${c}</div><p>${p}</p>${g.map(x=>`<span class="tag">${x}</span>`).join('')}</div>`).join('');
+$('#ce').innerHTML=C.map(([t,i,d,u])=>`<div class="card r"><h4 style="margin:0 0 4px">${t}</h4><p style="margin:0;color:var(--mu);font-size:14px">${i} · ${d}</p>${u?`<a class="mono" style="color:var(--ac);font-size:13px" href="${u}" target="_blank" rel="noopener">Vérifier le certificat</a>`:''}</div>`).join('');
+const F=[["all","Tous"],["web","Web"],["mobile","Mobile"],["desktop","Desktop"]];
+$('#fl').innerHTML=F.map(([k,l],i)=>`<button data-k="${k}" class="${i?'':'on'}">${l}</button>`).join('');
+function draw(k){$('#pg').innerHTML=P.filter(p=>k=='all'||p[0]==k).map(p=>`<a class="card pj tilt" href="${p[5]}" target="_blank" rel="noopener"><h4>${p[1]}</h4><div class="mono" style="font-size:12px;color:var(--ac2);margin-bottom:8px">${p[2]}</div><p>${p[3]}</p>${p[4].map(x=>`<span class="tag">${x}</span>`).join('')}<div class="gh" style="margin-top:12px">Voir le code sur GitHub</div></a>`).join('');tilt()}
+$('#fl').onclick=e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#fl button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw(b.dataset.k)};
+function tilt(){document.querySelectorAll('.tilt').forEach(c=>{c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-4px)`};c.onmouseleave=()=>c.style.transform=''})}
+draw('all');
+/* reveal + compteurs */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.n,s=performance.now();(function f(n){const p=Math.min((n-s)/1000,1);el.textContent=Math.round(t*p)+'+';p<1&&requestAnimationFrame(f)})(s);co.unobserve(el)}));
+document.querySelectorAll('[data-n]').forEach(el=>co.observe(el));
+/* terminal */
+const L=[`<span class="s">$</span> whoami`,`{`,`  <span class="k">"nom"</span>: <span class="s">"Hana Belhadj"</span>,`,`  <span class="k">"role"</span>: <span class="s">"Développeuse Full-Stack"</span>,`,`  <span class="k">"formation"</span>: <span class="s">"Master IDIAG, ESC Tunis"</span>,`,`  <span class="k">"stack"</span>: [<span class="s">"Next.js"</span>, <span class="s">"Node.js"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Angular"</span>],`,`  <span class="k">"base"</span>: <span class="s">"Supabase · PostgreSQL"</span>,`,`  <span class="k">"statut"</span>: <span class="s">"disponible"</span>`,`}`,`<span class="s">$</span> open tourism-platform<span class="cur"></span>`];
+const tp=$('#tp');let li=0;
+(function step(){if(li>=L.length)return;const d=document.createElement('div');d.innerHTML=L[li]+'';tp.appendChild(d);li++;setTimeout(step,li==1?500:240)})();
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){tp.innerHTML=L.map(x=>`<div>${x}</div>`).join('')}
+/* mots rotatifs */
+const W=["Full-Stack","Web & Mobile","Data","Freelance"];let wi=0;
+setInterval(()=>{const r=$('#rot');r.style.opacity=0;setTimeout(()=>{wi=(wi+1)%W.length;r.textContent=W[wi];r.style.opacity=1},300)},2800);$('#rot').style.transition='opacity .3s';
+/* scroll */
+const secs=[...document.querySelectorAll('section[id]')],links=[...document.querySelectorAll('nav a')];
+addEventListener('scroll',()=>{const h=document.documentElement;$('#bar').style.width=scrollY/(h.scrollHeight-innerHeight)*100+'%';let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-120)c=s.id});links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+c))},{passive:true});
+/* thème */
+$('#th').onclick=()=>{const d=document.documentElement,cur=d.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');d.dataset.theme=cur=='dark'?'light':'dark'};
+/* contact */
+$('#cf').onsubmit=e=>{e.preventDefault();const f=e.target;location.href=`mailto:hanabelhadj27@gmail.com?subject=${encodeURIComponent('Contact portfolio : '+f.n.value)}&body=${encodeURIComponent(f.m.value+'\n\n'+f.e.value)}`};
+/* réseau de particules */
+const cv=$('#bg'),cx=cv.getContext('2d');let pts=[],mx=-999,my=-999;
+function rs(){cv.width=innerWidth;cv.height=innerHeight;pts=Array.from({length:Math.min(70,innerWidth/18)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}
+rs();addEventListener('resize',rs);addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+function an(){cx.clearRect(0,0,cv.width,cv.height);const col=getComputedStyle(document.documentElement).getPropertyValue('--ac').trim()||'#5ce1e6';cx.strokeStyle=col;cx.fillStyle=col;
+pts.forEach((a,i)=>{a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>cv.width)a.vx*=-1;if(a.y<0||a.y>cv.height)a.vy*=-1;cx.globalAlpha=.7;cx.fillRect(a.x,a.y,2,2);
+for(let j=i+1;j<pts.length;j++){const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){cx.globalAlpha=(1-d/130)*.3;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+const dm=Math.hypot(a.x-mx,a.y-my);if(dm<160){cx.globalAlpha=(1-dm/160)*.6;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.stroke()}});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(an)}
+an();
+</script>
+</body>
+</html>
